@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Udbhav Shrinet, based in India">
+    <meta name="keywords" content="portfolio, web design, front-end engineer, Udbhav Shrinet, India">
+    <title>Udbhav Shrinet - Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('bgimg.jpg');
+            background-size: cover;
+            background-position: left;
+            cursor: none; /* Hide default cursor */
+            overflow: hidden; /* Disable scrollbars */
+            position: relative; /* Ensure bubbles are positioned relative to body */
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 2; /* Ensure content is above bubbles */
+        }
+        .hero h1 {
+            font-size: 5em; /* Increased font size */
+            margin-bottom: 10px;
+            opacity: 0; /* Start with hidden text */
+            transform: scale(0.8); /* Start with scaled down text */
+            animation: textReveal 3s forwards; /* Apply the animation */
+        }
+        .hero p {
+            font-size: 1.2em;
+        }
+        @keyframes textReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(147, 1, 1, 0.55); /* Blue color with 55% opacity */
+            filter: blur(60px); /* Increased blur effect */
+            opacity: 0; /* Initial opacity for fade-in effect */
+            animation: fadeInOut 20s ease-in-out infinite; /* Slower animation duration */
+        }
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 0.55;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+        }
+        /* Custom cursor styles */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+            z-index: 9999;
+            background-color: transparent; /* Circle color */
+            border: 2px solid #fff; /* Circle border */
+        }
+        /* "PROJECTS" link styles */
+        .projects-link {
+            position: absolute;
+            top: 30px; /* Adjusted top position */
+            right: 30px; /* Adjusted right position */
+            font-size: 1.4em; /* Increased font size */
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Dancing Script', cursive;
+            padding: 0; /* Remove padding */
+            border: none; /* Remove border */
+            transition: transform 0.3s ease;
+            z-index: 10000; /* Ensure link is above cursor */
+        }
+        .projects-link:hover {
+            transform: scale(1.1);
+            cursor: none; /* Hide default cursor on hover */
+        }
+        /* Cursor trail styles */
+        .trail {
+            position: absolute;
+            width: 20px; /* Slightly larger size */
+            height: 20px; /* Slightly larger size */
+            background-color: rgba(255, 255, 255, 0.3); /* Softer white color */
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            filter: blur(8px); /* Increased blur */
+            animation: trailAnimation 0.5s ease-out forwards; /* Shorter animation duration */
+        }
+        @keyframes trailAnimation {
+            from {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: scale(2); /* Slightly increased scaling */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1>Udbhav Shrinet</h1>
+        </header>
+    </div>
+    <!-- "PROJECTS" link -->
+    <a href="projects.html" class="projects-link" id="projectsLink">Projects</a>
+    <!-- Custom cursor element -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <script>
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            const size = Math.random() * 200 + 200; // Bubble size between 100px and 300px
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.top = `${Math.random() * 100}vh`;
+            bubble.style.left = `${Math.random() * 100}vw`;
+
+            // Remove the bubble after its animation completes
+            bubble.addEventListener('animationiteration', () => {
+                bubble.remove();
+                // Create a new bubble to keep the count consistent
+                createBubble();
+            });
+
+            document.body.appendChild(bubble);
+        }
+
+        // Create an initial set of bubbles
+        for (let i = 0; i < 2; i++) {
+            createBubble();
+        }
+
+        const customCursor = document.getElementById('customCursor');
+        const projectsLink = document.getElementById('projectsLink');
+        const trailContainer = document.createDocumentFragment();
+
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+            
+            // Create a new trail element
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            trail.style.left = `${e.clientX}px`;
+            trail.style.top = `${e.clientY}px`;
+            trailContainer.appendChild(trail);
+
+            // Remove the trail element after the animation duration
+            setTimeout(() => {
+                trail.remove();
+            }, 500); // Shorter removal time to match the animation duration
+
+            // Append the trail to the body
+            document.body.appendChild(trailContainer);
+        });
+
+        projectsLink.addEventListener('mouseover', (e) => {
+            customCursor.style.display = 'block'; // Ensure custom cursor is visible on hover
+        });
+
+        projectsLink.addEventListener('mouseout', (e) => {
+            customCursor.style.display = 'block'; // Show custom cursor when not hovering (if needed)
+        });
+
+        // Handle click on "PROJECTS" link
+        projectsLink.addEventListener('click', (e) => {
+            // Prevent default behavior (opening the link)
+            e.preventDefault();
+            
+            // Navigate to projects.html
+            window.location.href = projectsLink.getAttribute('href');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Udbhav Shrinet, based in India">
+    <meta name="keywords" content="portfolio, web design, front-end engineer, Udbhav Shrinet, India">
+    <title>Udbhav Shrinet - Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: 100vh;
+            width: 100vw;
+            background-image: url('BG2.jpg'); /* Set background image */
+            background-size: cover;
+            background-position: left;
+            cursor: none; /* Hide default cursor */
+            overflow: hidden; /* Hide default scroll bars */
+        }
+
+        .hero {
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4em;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+
+        .content {
+            margin-top: 200px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .section-title, ul, ul li {
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #fff;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        ul li {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom cursor styles */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+            z-index: 9999;
+            background-color: transparent;
+            border: 2px solid #fff;
+        }
+
+        /* "HOME" link styles */
+        .home-link {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 1.4em;
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Dancing Script', cursive;
+            padding: 0;
+            border: none;
+            transition: transform 0.3s ease;
+            z-index: 10000;
+        }
+
+        .home-link:hover {
+            transform: scale(1.1);
+            cursor: none;
+        }
+
+        /* Cursor trail styles */
+        .trail {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            filter: blur(8px);
+            animation: trailAnimation 0.5s ease-out forwards;
+        }
+
+        @keyframes trailAnimation {
+            from {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: scale(2);
+            }
+        }
+
+        /* Bubble styles */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(147, 1, 1, 0.55); /* Blue color with 55% opacity */
+            filter: blur(60px); /* Increased blur effect */
+            opacity: 0; /* Initial opacity for fade-in effect */
+            animation: fadeInOut 20s ease-in-out infinite; /* Slower animation duration */
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 0.55;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>Profile</h1>
+    </header>
+    <div class="content">
+        <div class="section-title">About Me</div>
+        <ul>
+            <li>I'm a dedicated third-year Economics Honours student, I bring a dynamic blend of skills in programming, graphics, data analysis, and visualization.</li>
+            <li>With hands-on experience from multiple internships in both data and graphic design, I thrive on blending creativity with analytical rigor.</li>
+            <li>My goal is to harness these talents to achieve meaningful success, contributing innovative solutions in the fields of economics and technology.</li>
+        </ul>
+        <div class="section-title">Skills</div>
+        <ul>
+            <li>Data Science and Analysis</li>
+            <li>Graphic Designing </li>
+            <li>Coding</li>
+        </ul>
+        <div class="section-title">Tools</div>
+        <ul>
+            <li>PowerBi, Tableau, Looker</li>
+            <li>Execl, SQL, SPSS, Stata, R</li>
+            <li>Python, HTML, CSS, Bash, AppScript, Git</li>
+            <li>Google Cloud Console, BigQuery, Functions </li>
+            <li>Adobe Photoshop, Figma, Canva, Gimp</li>
+        </ul>
+        <div class="section-title">Hobbies</div>
+        <ul>
+            <li>Chess</li>
+            <li>Music</li>
+            <li>Writing</li>
+        </ul>
+    </div>
+    <!-- "HOME" link -->
+    <a href="index.html" class="home-link" id="homeLink">Home</a>
+    <!-- Custom cursor element -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- Bubbles -->
+    <script>
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            const size = Math.random() * 200 + 100; // Bubble size between 100px and 300px
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.top = `${Math.random() * 100}vh`;
+            bubble.style.left = `${Math.random() * 100}vw`;
+
+            // Remove the bubble after its animation completes
+            bubble.addEventListener('animationiteration', () => {
+                bubble.remove();
+                // Create a new bubble to keep the count consistent
+                createBubble();
+            });
+
+            document.body.appendChild(bubble);
+        }
+
+        // Create an initial set of bubbles
+        for (let i = 0; i < 3; i++) {
+            createBubble();
+        }
+
+        const customCursor = document.getElementById('customCursor');
+        const homeLink = document.getElementById('homeLink');
+
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+
+            // Create a new trail element
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            trail.style.left = `${e.clientX}px`;
+            trail.style.top = `${e.clientY}px`;
+            document.body.appendChild(trail);
+
+            // Remove the trail element after the animation duration
+            setTimeout(() => {
+                trail.remove();
+            }, 500);
+        });
+
+        homeLink.addEventListener('mouseover', (e) => {
+            customCursor.style.display = 'block';
+        });
+
+        homeLink.addEventListener('mouseout', (e) => {
+            customCursor.style.display = 'block';
+        });
+
+        // Handle click on "HOME" link
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = homeLink.getAttribute('href');
+        });
+    </script>
+</body>
+</html>
