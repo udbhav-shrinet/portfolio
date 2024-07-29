@@ -8,6 +8,7 @@
     <title>Udbhav Shrinet - Portfolio</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             margin: 0;
@@ -104,6 +105,25 @@
             transform: scale(1.1);
             cursor: none; /* Hide default cursor on hover */
         }
+        /* Social Icons styles */   
+        .social-icons {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px; /* Adjusted gap between icons */
+            z-index: 10000; /* Ensure icons are above everything else */
+        }
+        .social-icons a {
+            color: #fff;
+            font-size: 1.1em; /* Adjusted font size for smaller icons */
+            transition: transform 0.3s ease, color 0.3s ease; /* Animation for scaling and color */
+            cursor: none; /* Hide default cursor on hover */
+        }
+        .social-icons a:hover {
+            transform: scale(1.1); /* Slightly larger scale on hover */
+            color: #f0f0f0; /* Light color on hover */
+        }
         /* Cursor trail styles */
         .trail {
             position: absolute;
@@ -134,8 +154,20 @@
             <h1>Udbhav Shrinet</h1>
         </header>
     </div>
+    <!-- Social media icons -->
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/udbhav-shrinet/" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/udbhav-shrinet" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://medium.com/@udiii" target="_blank" title="Medium">
+            <i class="fab fa-medium-m"></i>
+        </a>
+    </div>
     <!-- "PROJECTS" link -->
-    <a href="projects.html" class="projects-link" id="projectsLink">Projects</a>
+    <a href="profile.html" class="projects-link" id="projectsLink">Profile</a>
     <!-- Custom cursor element -->
     <div class="custom-cursor" id="customCursor"></div>
     <script>
@@ -203,6 +235,23 @@
             // Navigate to projects.html
             window.location.href = projectsLink.getAttribute('href');
         });
+
+        // Detecting "udbhav" typing and redirecting to password.html
+        let inputSequence = '';
+        const targetSequence = 'udbhav';
+
+        document.addEventListener('keydown', (e) => {
+            inputSequence += e.key.toLowerCase();
+            if (inputSequence.includes(targetSequence)) {
+                window.location.href = 'password.html';
+            }
+            // Reset sequence if it gets too long
+            if (inputSequence.length > targetSequence.length) {
+                inputSequence = inputSequence.slice(1);
+            }
+        });
     </script>
+
+
 </body>
 </html>
