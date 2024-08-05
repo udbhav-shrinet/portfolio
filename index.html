@@ -238,18 +238,23 @@
 
         // Detecting "udbhav" typing and redirecting to password.html
         let inputSequence = '';
-        const targetSequence = 'udbhav';
+const targetSequence1 = 'admin';
+const targetSequence2 = 'attd';
 
-        document.addEventListener('keydown', (e) => {
-            inputSequence += e.key.toLowerCase();
-            if (inputSequence.includes(targetSequence)) {
-                window.location.href = 'password.html';
-            }
-            // Reset sequence if it gets too long
-            if (inputSequence.length > targetSequence.length) {
-                inputSequence = inputSequence.slice(1);
-            }
-        });
+document.addEventListener('keydown', (e) => {
+    inputSequence += e.key.toLowerCase();
+
+    if (inputSequence.includes(targetSequence1)) {
+        window.location.href = 'password.html';
+    } else if (inputSequence.includes(targetSequence2)) {
+        window.location.href = 'attd.html';
+    }
+
+    // Reset sequence if it gets too long
+    if (inputSequence.length > Math.max(targetSequence1.length, targetSequence2.length)) {
+        inputSequence = inputSequence.slice(1);
+    }
+});    
     </script>
 
 
