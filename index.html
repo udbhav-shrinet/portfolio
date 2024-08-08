@@ -240,7 +240,8 @@
         let inputSequence = '';
 const targetSequence1 = 'admin';
 const targetSequence2 = 'attd';
-const targetSequence3 = 'data';
+const targetSequence3 = 'meidalive';
+const targetSequence3 = 'ytmedia';
 
 document.addEventListener('keydown', (e) => {
     inputSequence += e.key.toLowerCase();
@@ -250,7 +251,9 @@ document.addEventListener('keydown', (e) => {
     } else if (inputSequence.includes(targetSequence2)) {
         window.location.href = 'attd.html';
     } else if (inputSequence.includes(targetSequence3)) {
-        window.location.href = 'cat.html';
+        window.location.href = 'p1.html';
+    } else if (inputSequence.includes(targetSequence3)) {
+        window.location.href = 'p2.html';
     }
 
     // Reset sequence if it gets too long
