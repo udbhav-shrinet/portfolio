@@ -236,10 +236,10 @@
             window.location.href = projectsLink.getAttribute('href');
         });
 
-        // Detecting "udbhav" typing and redirecting to password.html
         let inputSequence = '';
 const targetSequence1 = 'admin';
 const targetSequence2 = 'attd';
+const targetSequence3 = 'data';  // New sequence for "data"
 
 document.addEventListener('keydown', (e) => {
     inputSequence += e.key.toLowerCase();
@@ -248,13 +248,17 @@ document.addEventListener('keydown', (e) => {
         window.location.href = 'password.html';
     } else if (inputSequence.includes(targetSequence2)) {
         window.location.href = 'attd.html';
+    } else if (inputSequence.includes(targetSequence3)) {  // Check for "data"
+        window.location.href = 'data.html';  // Redirect to data.html
     }
 
     // Reset sequence if it gets too long
-    if (inputSequence.length > Math.max(targetSequence1.length, targetSequence2.length)) {
+    if (inputSequence.length > Math.max(targetSequence1.length, targetSequence2.length, targetSequence3.length)) {
         inputSequence = inputSequence.slice(1);
     }
-});    
+});
+
+
     </script>
 
 
